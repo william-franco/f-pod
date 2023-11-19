@@ -18,9 +18,6 @@ base class MusicPlayerViewModelImpl extends ValueNotifier<MusicPlayerModel>
     implements MusicPlayerViewModel {
   MusicPlayerViewModelImpl() : super(MusicPlayerModel());
 
-  final Cubic _curve = Curves.easeIn;
-  final Duration _transitionDuration = const Duration(milliseconds: 300);
-
   @override
   void initListener() {
     value.pageCtrl.addListener(() {
@@ -33,8 +30,8 @@ base class MusicPlayerViewModelImpl extends ValueNotifier<MusicPlayerModel>
   void nextAlbum() {
     value.pageCtrl.animateToPage(
       (value.pageCtrl.page! + 1).toInt(),
-      duration: _transitionDuration,
-      curve: _curve,
+      duration: value.transitionDuration,
+      curve: value.curve,
     );
     notifyListeners();
   }
@@ -43,8 +40,8 @@ base class MusicPlayerViewModelImpl extends ValueNotifier<MusicPlayerModel>
   void previousAlbum() {
     value.pageCtrl.animateToPage(
       (value.pageCtrl.page! - 1).toInt(),
-      duration: _transitionDuration,
-      curve: _curve,
+      duration: value.transitionDuration,
+      curve: value.curve,
     );
     notifyListeners();
   }
