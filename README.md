@@ -5,7 +5,7 @@ The "fPod" project pays homage to the iconic Apple iPod interface, delivering a 
 This project was created based on this other project: [flutter-ipod](https://github.com/vishalambre/flutter-ipod)
 
 
-### Directory tree
+## Directory tree
 
 ```
 lib/
@@ -82,3 +82,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
