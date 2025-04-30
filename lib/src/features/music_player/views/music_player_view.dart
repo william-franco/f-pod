@@ -1,16 +1,11 @@
-// Flutter imports:
 import 'package:flutter/cupertino.dart';
-
-// Package imports:
-import 'package:provider/provider.dart';
-
-// Project imports:
-import 'package:fpod/src/common_widgets/common_music_menu_button.dart';
-import 'package:fpod/src/common_widgets/common_music_play_button.dart';
-import 'package:fpod/src/common_widgets/common_next_song_button.dart';
-import 'package:fpod/src/common_widgets/common_previous_song_button.dart';
-import 'package:fpod/src/constants/constants.dart';
-import 'package:fpod/src/features/music_player/view_models/music_player_view_model.dart';
+import 'package:fpod/src/common/dependency_injectors/dependency_injector.dart';
+import 'package:fpod/src/common/widgets/music_menu_button_widget.dart';
+import 'package:fpod/src/common/widgets/music_play_button_widget.dart';
+import 'package:fpod/src/common/widgets/next_song_button_widget.dart';
+import 'package:fpod/src/common/widgets/previous_song_button_widget.dart';
+import 'package:fpod/src/common/constants/constants.dart';
+import 'package:fpod/src/features/music_player/controllers/music_player_controller.dart';
 import 'package:fpod/src/features/music_player/widgets/album_card_widget.dart';
 
 class MusicPlayerView extends StatefulWidget {
@@ -21,17 +16,17 @@ class MusicPlayerView extends StatefulWidget {
 }
 
 class _MusicPlayerViewState extends State<MusicPlayerView> {
+  late final MusicPlayerController musicPlayerController;
+
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((duration) {
-      context.read<MusicPlayerViewModel>().initListener();
-    });
+    musicPlayerController = locator<MusicPlayerController>();
+    musicPlayerController.initListener();
   }
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<MusicPlayerViewModel>().value;
     return CupertinoPageScaffold(
       backgroundColor: CupertinoColors.systemGrey,
       child: SafeArea(
@@ -51,13 +46,15 @@ class _MusicPlayerViewState extends State<MusicPlayerView> {
                   color: CupertinoColors.black,
                 ),
                 child: PageView.builder(
-                  controller: viewModel.pageCtrl,
+                  controller: musicPlayerController.musicPlayerModel.pageCtrl,
                   scrollDirection: Axis.horizontal,
-                  itemCount: images.length,
+                  itemCount: Constants.images.length,
                   itemBuilder: (context, index) {
                     return AlbumCardWidget(
                       imageIndex: index,
-                      relativePosition: index - viewModel.currentAlbum,
+                      relativePosition:
+                          index -
+                          musicPlayerController.musicPlayerModel.currentAlbum,
                     );
                   },
                 ),
@@ -70,7 +67,7 @@ class _MusicPlayerViewState extends State<MusicPlayerView> {
                 children: [
                   GestureDetector(
                     onPanUpdate: (details) {
-                      context.read<MusicPlayerViewModel>().panHandler(details);
+                      musicPlayerController.panHandler(details);
                     },
                     child: Container(
                       height: 300,
@@ -81,24 +78,18 @@ class _MusicPlayerViewState extends State<MusicPlayerView> {
                       ),
                       child: Stack(
                         children: [
-                          CommonMusicMenuButton(
-                            onPressed: () {},
-                          ),
-                          CommonNextSongButton(
+                          MusicMenuButtonWidget(onPressed: () {}),
+                          NextSongButtonWidget(
                             onPressed: () {
-                              context.read<MusicPlayerViewModel>().nextAlbum();
+                              musicPlayerController.nextAlbum();
                             },
                           ),
-                          CommonPreviousSongButton(
+                          PreviousSongButtonWidget(
                             onPressed: () {
-                              context
-                                  .read<MusicPlayerViewModel>()
-                                  .previousAlbum();
+                              musicPlayerController.previousAlbum();
                             },
                           ),
-                          CommonMusicPlayButton(
-                            onPressed: () {},
-                          ),
+                          MusicPlayButtonWidget(onPressed: () {}),
                         ],
                       ),
                     ),

@@ -1,16 +1,13 @@
-// Flutter imports:
 import 'package:flutter/cupertino.dart';
-
-// Project imports:
-import 'package:fpod/src/dependency_injector/dependency_injector.dart';
-import 'package:fpod/src/routes/routes.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+import 'package:fpod/src/common/dependency_injectors/dependency_injector.dart';
+import 'package:fpod/src/common/routes/routes.dart';
 
 void main() {
-  runApp(
-    const DependencyInjector(
-      child: MyApp(),
-    ),
-  );
+  WidgetsFlutterBinding.ensureInitialized();
+  usePathUrlStrategy();
+  dependencyInjector();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -22,10 +19,8 @@ class MyApp extends StatelessWidget {
     return CupertinoApp.router(
       title: 'fPod',
       debugShowCheckedModeBanner: false,
-      theme: const CupertinoThemeData(
-        brightness: Brightness.dark,
-      ),
-      routerConfig: routesApp.routes,
+      theme: const CupertinoThemeData(brightness: Brightness.dark),
+      routerConfig: Routes().routes,
     );
   }
 }

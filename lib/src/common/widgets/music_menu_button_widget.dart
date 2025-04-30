@@ -1,13 +1,9 @@
-// Flutter imports:
 import 'package:flutter/cupertino.dart';
 
-class CommonMusicMenuButton extends StatelessWidget {
+class MusicMenuButtonWidget extends StatelessWidget {
   final VoidCallback onPressed;
 
-  const CommonMusicMenuButton({
-    super.key,
-    required this.onPressed,
-  });
+  const MusicMenuButtonWidget({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

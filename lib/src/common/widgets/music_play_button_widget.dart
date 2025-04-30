@@ -1,23 +1,19 @@
-// Flutter imports:
 import 'package:flutter/cupertino.dart';
 
-class CommonPreviousSongButton extends StatelessWidget {
+class MusicPlayButtonWidget extends StatelessWidget {
   final VoidCallback onPressed;
 
-  const CommonPreviousSongButton({
-    super.key,
-    required this.onPressed,
-  });
+  const MusicPlayButtonWidget({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.centerLeft,
-      margin: const EdgeInsets.only(left: 4.0),
+      alignment: Alignment.bottomCenter,
+      margin: const EdgeInsets.only(bottom: 4.0),
       child: CupertinoButton(
         onPressed: onPressed,
         child: const Icon(
-          CupertinoIcons.backward_end_alt_fill,
+          CupertinoIcons.playpause_fill,
           color: CupertinoColors.white,
           size: 40,
         ),

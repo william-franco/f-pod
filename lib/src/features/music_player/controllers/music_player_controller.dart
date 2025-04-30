@@ -1,47 +1,48 @@
-// Flutter imports:
 import 'package:flutter/cupertino.dart';
-
-// Project imports:
 import 'package:fpod/src/features/music_player/models/music_player_model.dart';
 
-abstract base class MusicPlayerViewModel
-    extends ValueNotifier<MusicPlayerModel> {
-  MusicPlayerViewModel() : super(MusicPlayerModel());
+typedef _Controller = ChangeNotifier;
+
+abstract interface class MusicPlayerController extends _Controller {
+  MusicPlayerModel get musicPlayerModel;
 
   void initListener();
   void nextAlbum();
   void previousAlbum();
-  void panHandler(DragUpdateDetails d);
+  void panHandler(DragUpdateDetails details);
 }
 
-base class MusicPlayerViewModelImpl extends ValueNotifier<MusicPlayerModel>
-    implements MusicPlayerViewModel {
-  MusicPlayerViewModelImpl() : super(MusicPlayerModel());
+class MusicPlayerControllerImpl extends _Controller
+    implements MusicPlayerController {
+  final MusicPlayerModel _musicPlayerModel = MusicPlayerModel();
+
+  @override
+  MusicPlayerModel get musicPlayerModel => _musicPlayerModel;
 
   @override
   void initListener() {
-    value.pageCtrl.addListener(() {
-      value.currentAlbum = value.pageCtrl.page!;
+    _musicPlayerModel.pageCtrl.addListener(() {
+      _musicPlayerModel.currentAlbum = _musicPlayerModel.pageCtrl.page!;
       notifyListeners();
     });
   }
 
   @override
   void nextAlbum() {
-    value.pageCtrl.animateToPage(
-      (value.pageCtrl.page! + 1).toInt(),
-      duration: value.transitionDuration,
-      curve: value.curve,
+    _musicPlayerModel.pageCtrl.animateToPage(
+      (_musicPlayerModel.pageCtrl.page! + 1).toInt(),
+      duration: _musicPlayerModel.transitionDuration,
+      curve: _musicPlayerModel.curve,
     );
     notifyListeners();
   }
 
   @override
   void previousAlbum() {
-    value.pageCtrl.animateToPage(
-      (value.pageCtrl.page! - 1).toInt(),
-      duration: value.transitionDuration,
-      curve: value.curve,
+    _musicPlayerModel.pageCtrl.animateToPage(
+      (_musicPlayerModel.pageCtrl.page! - 1).toInt(),
+      duration: _musicPlayerModel.transitionDuration,
+      curve: _musicPlayerModel.curve,
     );
     notifyListeners();
   }
@@ -65,9 +66,10 @@ base class MusicPlayerViewModelImpl extends ValueNotifier<MusicPlayerModel>
     double xChange = d.delta.dx.abs();
 
     /// Directional change on wheel
-    double vert = (onRightSide && panUp) || (onLeftSide && panDown)
-        ? yChange
-        : yChange * -1;
+    double vert =
+        (onRightSide && panUp) || (onLeftSide && panDown)
+            ? yChange
+            : yChange * -1;
 
     double horz =
         (onTop && panLeft) || (onBottom && panRight) ? xChange : xChange * -1;
@@ -76,7 +78,9 @@ base class MusicPlayerViewModelImpl extends ValueNotifier<MusicPlayerModel>
     double scrollOffsetChange = (horz + vert) * (d.delta.distance * 0.2);
 
     // Move the page view scroller
-    value.pageCtrl.jumpTo(value.pageCtrl.offset + scrollOffsetChange);
+    _musicPlayerModel.pageCtrl.jumpTo(
+      _musicPlayerModel.pageCtrl.offset + scrollOffsetChange,
+    );
     notifyListeners();
   }
 }
