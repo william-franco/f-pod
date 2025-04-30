@@ -5,6 +5,26 @@ The "fPod" project pays homage to the iconic Apple iPod interface, delivering a 
 This project was created based on this other project: [flutter-ipod](https://github.com/vishalambre/flutter-ipod)
 
 
+### Directory tree
+
+```
+lib/
+    └── src/
+        ├── common/
+        │   ├── constants/
+        │   ├── dependency_injectors/
+        │   ├── routes/
+        │   └── widgets/
+        └── features/
+            └── music_player/
+                ├── controllers/
+                ├── models/
+                ├── routes/
+                ├── views/
+                └── widgets/
+```
+
+
 ## ScreenShots
 
 | Image 1 | Image 2 | Image 3 |
