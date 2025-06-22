@@ -7,11 +7,14 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   usePathUrlStrategy();
   dependencyInjector();
-  runApp(const MyApp());
+  final Routes appRoutes = Routes();
+  runApp(MyApp(appRoutes: appRoutes));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final Routes appRoutes;
+
+  const MyApp({super.key, required this.appRoutes});
 
   // This widget is the root of your application.
   @override
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'fPod',
       debugShowCheckedModeBanner: false,
       theme: const CupertinoThemeData(brightness: Brightness.dark),
-      routerConfig: Routes().routes,
+      routerConfig: appRoutes.routes,
     );
   }
 }

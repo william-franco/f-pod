@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:fpod/src/common/dependency_injectors/dependency_injector.dart';
 import 'package:fpod/src/common/widgets/music_menu_button_widget.dart';
 import 'package:fpod/src/common/widgets/music_play_button_widget.dart';
 import 'package:fpod/src/common/widgets/next_song_button_widget.dart';
@@ -9,7 +8,9 @@ import 'package:fpod/src/features/music_player/controllers/music_player_controll
 import 'package:fpod/src/features/music_player/widgets/album_card_widget.dart';
 
 class MusicPlayerView extends StatefulWidget {
-  const MusicPlayerView({super.key});
+  final MusicPlayerController musicPlayerController;
+
+  const MusicPlayerView({super.key, required this.musicPlayerController});
 
   @override
   State<MusicPlayerView> createState() => _MusicPlayerViewState();
@@ -21,7 +22,7 @@ class _MusicPlayerViewState extends State<MusicPlayerView> {
   @override
   void initState() {
     super.initState();
-    musicPlayerController = locator<MusicPlayerController>();
+    musicPlayerController = widget.musicPlayerController;
     musicPlayerController.initListener();
   }
 
