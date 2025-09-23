@@ -1,6 +1,6 @@
 {
-    "name": "fpod",
-    "short_name": "fpod",
+    "name": "f_pod",
+    "short_name": "f_pod",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

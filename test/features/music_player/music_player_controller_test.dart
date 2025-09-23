@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fpod/src/features/music_player/models/music_player_model.dart';
+import 'package:f_pod/src/features/music_player/models/music_player_model.dart';
 import 'package:mockito/mockito.dart';
 import 'music_player_controller.mocks.mocks.dart';
 

@@ -6,9 +6,9 @@
 import 'dart:ui' as _i5;
 
 import 'package:flutter/cupertino.dart' as _i4;
-import 'package:fpod/src/features/music_player/controllers/music_player_controller.dart'
+import 'package:f_pod/src/features/music_player/controllers/music_player_controller.dart'
     as _i3;
-import 'package:fpod/src/features/music_player/models/music_player_model.dart'
+import 'package:f_pod/src/features/music_player/models/music_player_model.dart'
     as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 

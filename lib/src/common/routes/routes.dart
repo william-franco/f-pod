@@ -1,4 +1,4 @@
-import 'package:fpod/src/features/music_player/routes/music_player_routes.dart';
+import 'package:f_pod/src/features/music_player/routes/music_player_routes.dart';
 import 'package:go_router/go_router.dart';
 
 class Routes {

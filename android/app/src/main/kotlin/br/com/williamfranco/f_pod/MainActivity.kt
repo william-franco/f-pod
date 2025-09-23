@@ -1,4 +1,4 @@
-package br.com.williamfranco.fpod
+package br.com.williamfranco.f_pod
 
 import io.flutter.embedding.android.FlutterActivity
 

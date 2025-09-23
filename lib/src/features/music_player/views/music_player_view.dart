@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
-import 'package:fpod/src/common/widgets/music_menu_button_widget.dart';
-import 'package:fpod/src/common/widgets/music_play_button_widget.dart';
-import 'package:fpod/src/common/widgets/next_song_button_widget.dart';
-import 'package:fpod/src/common/widgets/previous_song_button_widget.dart';
-import 'package:fpod/src/common/constants/constants.dart';
-import 'package:fpod/src/features/music_player/controllers/music_player_controller.dart';
-import 'package:fpod/src/features/music_player/widgets/album_card_widget.dart';
+import 'package:f_pod/src/common/widgets/music_menu_button_widget.dart';
+import 'package:f_pod/src/common/widgets/music_play_button_widget.dart';
+import 'package:f_pod/src/common/widgets/next_song_button_widget.dart';
+import 'package:f_pod/src/common/widgets/previous_song_button_widget.dart';
+import 'package:f_pod/src/common/constants/constants.dart';
+import 'package:f_pod/src/features/music_player/controllers/music_player_controller.dart';
+import 'package:f_pod/src/features/music_player/widgets/album_card_widget.dart';
 
 class MusicPlayerView extends StatefulWidget {
   final MusicPlayerController musicPlayerController;

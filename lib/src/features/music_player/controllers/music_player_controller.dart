@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:fpod/src/features/music_player/models/music_player_model.dart';
+import 'package:f_pod/src/features/music_player/models/music_player_model.dart';
 
 typedef _Controller = ChangeNotifier;
 
@@ -66,13 +66,13 @@ class MusicPlayerControllerImpl extends _Controller
     double xChange = d.delta.dx.abs();
 
     /// Directional change on wheel
-    double vert =
-        (onRightSide && panUp) || (onLeftSide && panDown)
-            ? yChange
-            : yChange * -1;
+    double vert = (onRightSide && panUp) || (onLeftSide && panDown)
+        ? yChange
+        : yChange * -1;
 
-    double horz =
-        (onTop && panLeft) || (onBottom && panRight) ? xChange : xChange * -1;
+    double horz = (onTop && panLeft) || (onBottom && panRight)
+        ? xChange
+        : xChange * -1;
 
     // Total computed change with velocity
     double scrollOffsetChange = (horz + vert) * (d.delta.distance * 0.2);

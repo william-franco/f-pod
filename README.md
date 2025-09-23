@@ -1,4 +1,4 @@
-# fPod
+# F Pod
 
 The "fPod" project pays homage to the iconic Apple iPod interface, delivering a nostalgic music experience. Developed in Flutter, this mobile application showcases an elegant, minimalist interface that intuitively displays collections of music albums. Navigate through your music library with the same familiar feel as the iPod, explore album covers, and embark on a unique musical journey. With "fPod," we've recreated timeless magic using cutting-edge technology, providing an engaging experience for modern users while celebrating musical heritage. Immerse yourself in the harmony of music with the familiarity of the past, all in the palm of your hand.
 
