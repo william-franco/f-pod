@@ -4,26 +4,23 @@ import 'package:f_pod/src/common/widgets/music_play_button_widget.dart';
 import 'package:f_pod/src/common/widgets/next_song_button_widget.dart';
 import 'package:f_pod/src/common/widgets/previous_song_button_widget.dart';
 import 'package:f_pod/src/common/constants/constants.dart';
-import 'package:f_pod/src/features/music_player/controllers/music_player_controller.dart';
+import 'package:f_pod/src/features/music_player/controllers/music_player_view_model.dart';
 import 'package:f_pod/src/features/music_player/widgets/album_card_widget.dart';
 
 class MusicPlayerView extends StatefulWidget {
-  final MusicPlayerController musicPlayerController;
+  final MusicPlayerViewModel musicPlayerViewModel;
 
-  const MusicPlayerView({super.key, required this.musicPlayerController});
+  const MusicPlayerView({super.key, required this.musicPlayerViewModel});
 
   @override
   State<MusicPlayerView> createState() => _MusicPlayerViewState();
 }
 
 class _MusicPlayerViewState extends State<MusicPlayerView> {
-  late final MusicPlayerController musicPlayerController;
-
   @override
   void initState() {
     super.initState();
-    musicPlayerController = widget.musicPlayerController;
-    musicPlayerController.initListener();
+    widget.musicPlayerViewModel.initListener();
   }
 
   @override
@@ -47,7 +44,8 @@ class _MusicPlayerViewState extends State<MusicPlayerView> {
                   color: CupertinoColors.black,
                 ),
                 child: PageView.builder(
-                  controller: musicPlayerController.musicPlayerModel.pageCtrl,
+                  controller:
+                      widget.musicPlayerViewModel.musicPlayerModel.pageCtrl,
                   scrollDirection: Axis.horizontal,
                   itemCount: Constants.images.length,
                   itemBuilder: (context, index) {
@@ -55,7 +53,10 @@ class _MusicPlayerViewState extends State<MusicPlayerView> {
                       imageIndex: index,
                       relativePosition:
                           index -
-                          musicPlayerController.musicPlayerModel.currentAlbum,
+                          widget
+                              .musicPlayerViewModel
+                              .musicPlayerModel
+                              .currentAlbum,
                     );
                   },
                 ),
@@ -68,7 +69,7 @@ class _MusicPlayerViewState extends State<MusicPlayerView> {
                 children: [
                   GestureDetector(
                     onPanUpdate: (details) {
-                      musicPlayerController.panHandler(details);
+                      widget.musicPlayerViewModel.panHandler(details);
                     },
                     child: Container(
                       height: 300,
@@ -82,12 +83,12 @@ class _MusicPlayerViewState extends State<MusicPlayerView> {
                           MusicMenuButtonWidget(onPressed: () {}),
                           NextSongButtonWidget(
                             onPressed: () {
-                              musicPlayerController.nextAlbum();
+                              widget.musicPlayerViewModel.nextAlbum();
                             },
                           ),
                           PreviousSongButtonWidget(
                             onPressed: () {
-                              musicPlayerController.previousAlbum();
+                              widget.musicPlayerViewModel.previousAlbum();
                             },
                           ),
                           MusicPlayButtonWidget(onPressed: () {}),

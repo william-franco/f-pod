@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:f_pod/src/features/music_player/models/music_player_model.dart';
 
-typedef _Controller = ChangeNotifier;
+typedef _ViewModel = ChangeNotifier;
 
-abstract interface class MusicPlayerController extends _Controller {
+abstract interface class MusicPlayerViewModel extends _ViewModel {
   MusicPlayerModel get musicPlayerModel;
 
   void initListener();
@@ -12,8 +12,8 @@ abstract interface class MusicPlayerController extends _Controller {
   void panHandler(DragUpdateDetails details);
 }
 
-class MusicPlayerControllerImpl extends _Controller
-    implements MusicPlayerController {
+class MusicPlayerViewModelImpl extends _ViewModel
+    implements MusicPlayerViewModel {
   final MusicPlayerModel _musicPlayerModel = MusicPlayerModel();
 
   @override

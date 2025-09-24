@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:f_pod/src/features/music_player/controllers/music_player_controller.dart';
+import 'package:f_pod/src/features/music_player/controllers/music_player_view_model.dart';
 
 final locator = GetIt.instance;
 
@@ -8,8 +8,8 @@ void dependencyInjector() {
 }
 
 void _startFeatureMusicPlayer() {
-  locator.registerCachedFactory<MusicPlayerController>(
-    () => MusicPlayerControllerImpl(),
+  locator.registerCachedFactory<MusicPlayerViewModel>(
+    () => MusicPlayerViewModelImpl(),
   );
 }
 
@@ -18,6 +18,6 @@ void resetDependencies() {
 }
 
 void resetFeatureSetting() {
-  locator.unregister<MusicPlayerController>();
+  locator.unregister<MusicPlayerViewModel>();
   _startFeatureMusicPlayer();
 }
