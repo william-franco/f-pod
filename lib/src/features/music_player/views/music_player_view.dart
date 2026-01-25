@@ -4,7 +4,7 @@ import 'package:f_pod/src/common/widgets/music_play_button_widget.dart';
 import 'package:f_pod/src/common/widgets/next_song_button_widget.dart';
 import 'package:f_pod/src/common/widgets/previous_song_button_widget.dart';
 import 'package:f_pod/src/common/constants/constants.dart';
-import 'package:f_pod/src/features/music_player/controllers/music_player_view_model.dart';
+import 'package:f_pod/src/features/music_player/view_models/music_player_view_model.dart';
 import 'package:f_pod/src/features/music_player/widgets/album_card_widget.dart';
 
 class MusicPlayerView extends StatefulWidget {

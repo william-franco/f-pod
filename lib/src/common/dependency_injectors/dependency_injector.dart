@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:f_pod/src/features/music_player/controllers/music_player_view_model.dart';
+import 'package:f_pod/src/features/music_player/view_models/music_player_view_model.dart';
 
 final locator = GetIt.instance;
 

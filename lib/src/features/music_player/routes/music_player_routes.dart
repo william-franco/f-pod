@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:f_pod/src/common/dependency_injectors/dependency_injector.dart';
-import 'package:f_pod/src/features/music_player/controllers/music_player_view_model.dart';
+import 'package:f_pod/src/features/music_player/view_models/music_player_view_model.dart';
 import 'package:f_pod/src/features/music_player/views/music_player_view.dart';
 import 'package:go_router/go_router.dart';
 

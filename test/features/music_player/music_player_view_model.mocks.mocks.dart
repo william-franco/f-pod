@@ -5,7 +5,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:ui' as _i5;
 
-import 'package:f_pod/src/features/music_player/controllers/music_player_view_model.dart'
+import 'package:f_pod/src/features/music_player/view_models/music_player_view_model.dart'
     as _i3;
 import 'package:f_pod/src/features/music_player/models/music_player_model.dart'
     as _i2;
