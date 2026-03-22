@@ -5,23 +5,38 @@ The "fPod" project pays homage to the iconic Apple iPod interface, delivering a 
 This project was created based on this other project: [flutter-ipod](https://github.com/vishalambre/flutter-ipod)
 
 
-## Directory tree
+## Project Structure
+
+The project is structured in a modular way, where each new functionality should be a new module containing its particularities, and things common to the entire project should be in the `common` module.
+
+
+## Folder architecture
 
 ```
-lib/
-    └── src/
-        ├── common/
-        │   ├── constants/
-        │   ├── dependency_injectors/
+src/
+    ├── common/
+    │   ├── constants/
+    │   ├── dependency_injectors/
+    │   ├── enums/
+    │   ├── extensions/
+    │   ├── patterns/
+    │   ├── routes/
+    │   ├── services/
+    │   ├── state_management/
+    │   └── widgets/
+    └── features/
+        ├── feature_one/
+        │   ├── models/
+        │   ├── repositories/
         │   ├── routes/
-        │   └── widgets/
-        └── features/
-            └── music_player/
-                ├── controllers/
-                ├── models/
-                ├── routes/
-                ├── views/
-                └── widgets/
+        │   ├── view_models/
+        │   └── views/
+        └── feature_two/
+            ├── models/
+            ├── repositories/
+            ├── routes/
+            ├── view_models/
+            └── views/
 ```
 
 
