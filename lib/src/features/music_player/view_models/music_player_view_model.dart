@@ -2,18 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:f_pod/src/common/state_management/state_management.dart';
 import 'package:f_pod/src/features/music_player/models/music_player_model.dart';
 
-abstract class MusicPlayerViewModel extends StateManagement<MusicPlayerModel> {
-  MusicPlayerViewModel(super.initialState);
+typedef _ViewModel = StateManagement<MusicPlayerModel>;
 
+abstract class MusicPlayerViewModel extends _ViewModel {
   void nextAlbum();
   void previousAlbum();
   void panHandler(DragUpdateDetails details);
 }
 
-class MusicPlayerViewModelImpl extends MusicPlayerViewModel {
-  MusicPlayerViewModelImpl() : super(MusicPlayerModel()) {
+class MusicPlayerViewModelImpl extends _ViewModel
+    implements MusicPlayerViewModel {
+  MusicPlayerViewModelImpl() {
     _initListener();
   }
+
+  @override
+  MusicPlayerModel build() => MusicPlayerModel();
 
   void _initListener() {
     state.pageCtrl.addListener(() {
@@ -70,8 +74,6 @@ class MusicPlayerViewModelImpl extends MusicPlayerViewModel {
     double scrollOffsetChange = (horz + vert) * (d.delta.distance * 0.2);
 
     // Move the page view scroller (page listener handles the state update)
-    state.pageCtrl.jumpTo(
-      state.pageCtrl.offset + scrollOffsetChange,
-    );
+    state.pageCtrl.jumpTo(state.pageCtrl.offset + scrollOffsetChange);
   }
 }
