@@ -18,7 +18,12 @@ class AlbumCardWidget extends StatelessWidget {
       child: Transform(
         transform: Matrix4.identity()
           ..setEntry(3, 2, 0.003) // add perspective
-          ..scale((1 - relativePosition.abs()).clamp(0.2, 0.6) + 0.4)
+          ..scaleByDouble(
+            (1 - relativePosition.abs()).clamp(0.2, 0.6) + 0.4,
+            (1 - relativePosition.abs()).clamp(0.2, 0.6) + 0.4,
+            (1 - relativePosition.abs()).clamp(0.2, 0.6) + 0.4,
+            1.0,
+          )
           ..rotateY(relativePosition),
         // ..rotateZ(relativePosition),
         alignment: relativePosition >= 0
