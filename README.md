@@ -1,12 +1,31 @@
 # F Pod
 
-The "fPod" project pays homage to the iconic Apple iPod interface, delivering a nostalgic music experience. Developed in Flutter, this mobile application showcases an elegant, minimalist interface that intuitively displays collections of music albums. Based on [flutter-ipod](https://github.com/vishalambre/flutter-ipod).
+Nostalgic music player inspired by the classic iPod interface, built in Flutter.
+
+Presents album art in a cover-flow style carousel with smooth transforms and minimal chrome.
+
+Based on [flutter-ipod](https://github.com/vishalambre/flutter-ipod); adapted for modular features and shared widgets.
+
+Ideal for studying custom layouts, animations, and asset-driven UI without a backend.
+
+Runs as a self-contained client with local demo content and platform-agnostic rendering.
+
+## Structure
+
+```mermaid
+flowchart LR
+  PlayerRoute --> PlayerView
+  PlayerView --> AlbumCarousel
+  AlbumCarousel --> PlayerViewModel
+  PlayerViewModel --> AlbumRepository
+  AlbumRepository --> LocalAssets[Local assets]
+```
 
 ## Stack
 
 | Technology | Version |
 |------------|---------|
-| Dart SDK | ^3.13.2 |
+| Dart SDK | ^3.13.3 |
 | cupertino_icons | ^1.0.8 |
 | get_it | ^9.2.1 |
 | go_router | ^17.2.3 |
