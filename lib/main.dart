@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 import 'package:f_pod/src/common/dependency_injectors/dependency_injector.dart';
 import 'package:f_pod/src/common/routes/routes.dart';
 

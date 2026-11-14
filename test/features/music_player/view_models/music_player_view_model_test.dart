@@ -1,5 +1,5 @@
 import 'package:f_pod/src/features/music_player/view_models/music_player_view_model.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 // Widget mínimo que ataca o PageController do ViewModel ao tree do Flutter,

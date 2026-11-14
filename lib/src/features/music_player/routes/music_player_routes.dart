@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 import 'package:f_pod/src/common/dependency_injectors/dependency_injector.dart';
 import 'package:f_pod/src/features/music_player/view_models/music_player_view_model.dart';
 import 'package:f_pod/src/features/music_player/views/music_player_view.dart';
